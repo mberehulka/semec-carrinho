@@ -1,8 +1,32 @@
 [package]
-name = "controller"
+name = "semec-carrinho"
 version = "0.1.0"
 edition = "2024"
+resolver = "3"
+
+
 
 [dependencies]
 dioxus.version = "0.6.3"
-dioxus.features = ["android"]
+dioxus.default-features = false
+dioxus.features = ["logger","macro","signals"]
+
+
+
+[features]
+default = ["mobile"]
+mobile = ["dioxus/mobile"]
+
+
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
